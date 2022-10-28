@@ -4,6 +4,8 @@
  */
 package GUI_forms;
 
+import com.hospital.hospitalmgmnt.DoctorDirectory;
+import com.hospital.hospitalmgmnt.HospitalDirectory;
 import com.hospital.hospitalmgmnt.PersonDirectory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -18,6 +20,8 @@ public class LoginPageForm extends javax.swing.JFrame {
      * Creates new form LoginPageForm
      */
     PersonDirectory perDir;
+    HospitalDirectory hospital;
+    DoctorDirectory doctor;
     public LoginPageForm(){
         
         
@@ -26,6 +30,12 @@ public class LoginPageForm extends javax.swing.JFrame {
         initComponents();
         this.perDir = perDir;
     }
+    public LoginPageForm(DoctorDirectory doctor, HospitalDirectory hospital) {
+        initComponents();
+        this.doctor = doctor;
+        this.hospital = hospital;
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -139,6 +149,14 @@ public class LoginPageForm extends javax.swing.JFrame {
             this.setVisible(false);
             mp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         }
+        else if (user.equals("CommAdmin") && (pwd.equals("654321")) ) 
+        {
+                 MainComAdminForm mca = new MainComAdminForm(hospital);
+                 mca.setVisible(true);
+                 this.setVisible(false);
+                 mca.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                 
+                }
         else
             JOptionPane.showMessageDialog(this, "Incorrect username or Password");
 

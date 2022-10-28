@@ -4,6 +4,8 @@
  */
 package GUI_forms;
 
+import com.hospital.hospitalmgmnt.HospitalDirectory;
+
 /**
  *
  * @author Divyesh Rajput
@@ -13,8 +15,15 @@ public class MainComAdminForm extends javax.swing.JFrame {
     /**
      * Creates new form MainComAdminForm
      */
+    HospitalDirectory hospital;
     public MainComAdminForm() {
         initComponents();
+    }
+    
+    public MainComAdminForm(HospitalDirectory hospital){
+        initComponents();
+        this.hospital = hospital;
+        
     }
 
     /**
@@ -114,6 +123,9 @@ public class MainComAdminForm extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        CreateCommunity cc = new CreateCommunity(hospital);
+        jSplitPane1.setRightComponent(cc);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

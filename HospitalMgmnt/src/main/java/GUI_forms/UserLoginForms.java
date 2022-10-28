@@ -4,6 +4,8 @@
  */
 package GUI_forms;
 
+import com.hospital.hospitalmgmnt.DoctorDirectory;
+import com.hospital.hospitalmgmnt.HospitalDirectory;
 import com.hospital.hospitalmgmnt.PersonDirectory;
 import javax.swing.JFrame;
 
@@ -17,9 +19,13 @@ public class UserLoginForms extends javax.swing.JFrame {
      * Creates new form UserLoginForms
      */
     PersonDirectory perDir;
+    DoctorDirectory doctor;
+    HospitalDirectory hospital;
     public UserLoginForms() {
         initComponents();
         this.perDir= new PersonDirectory();
+        this.doctor = new DoctorDirectory();
+        this.hospital = new HospitalDirectory();
     }
 
     /**
@@ -129,7 +135,7 @@ public class UserLoginForms extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        LoginPageForm lp = new LoginPageForm();
+        LoginPageForm lp = new LoginPageForm(doctor, hospital);
         lp.setVisible(true);
         lp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
@@ -153,7 +159,6 @@ public class UserLoginForms extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         MainDoctorForm md = new MainDoctorForm(perDir);
-        System.out.println(perDir);
         md.setVisible(true);
         this.setVisible(false);
         
@@ -161,7 +166,9 @@ public class UserLoginForms extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        
+        LoginPageForm lp = new LoginPageForm(doctor, hospital);
+        lp.setVisible(true);
+        lp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**

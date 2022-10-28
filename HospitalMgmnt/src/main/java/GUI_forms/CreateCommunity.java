@@ -4,6 +4,10 @@
  */
 package GUI_forms;
 
+import com.hospital.hospitalmgmnt.Hospital;
+import com.hospital.hospitalmgmnt.HospitalDirectory;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Divyesh Rajput
@@ -13,8 +17,15 @@ public class CreateCommunity extends javax.swing.JPanel {
     /**
      * Creates new form CreateCommunity
      */
+    HospitalDirectory hospital;
     public CreateCommunity() {
+       // initComponents();
+    }
+    public CreateCommunity(HospitalDirectory hospital) {
         initComponents();
+        this.hospital = hospital;
+        
+        populateHospitalTable();
     }
 
     /**
@@ -202,4 +213,19 @@ public class CreateCommunity extends javax.swing.JPanel {
     private javax.swing.JTextField txtHospitalID;
     private javax.swing.JTextField txtHospitalName;
     // End of variables declaration//GEN-END:variables
+
+    private void populateHospitalTable() {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        DefaultTableModel model = (DefaultTableModel) tblHospital.getModel();
+        System.out.println(hospital);
+        model.setRowCount(0);
+        for (Hospital hp : hospital.getHospital()){
+            Object[] row = new Object[4];
+            row[0] = hp;
+            row[1]= hp.getHospitalName();
+            row[2]= hp.getStreetAddress();
+            row[3]= hp.getPhoneNo();
+            model.addRow(row);
+        }
+    }
 }
