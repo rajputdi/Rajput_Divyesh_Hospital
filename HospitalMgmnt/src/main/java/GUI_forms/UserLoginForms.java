@@ -166,6 +166,7 @@ public class UserLoginForms extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        //System.out.println(hospital);
         LoginPageForm lp = new LoginPageForm(doctor, hospital);
         lp.setVisible(true);
         lp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

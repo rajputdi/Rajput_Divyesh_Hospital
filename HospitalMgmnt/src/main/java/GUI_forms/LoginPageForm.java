@@ -137,7 +137,7 @@ public class LoginPageForm extends javax.swing.JFrame {
 
         if (user.equals("admin") && (pwd.equals("admin")))
         {
-            MainEntryForm mf = new MainEntryForm();
+            MainEntryForm mf = new MainEntryForm(doctor, hospital);
             mf.setVisible(true);
             this.setVisible(false);
             mf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

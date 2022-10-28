@@ -35,5 +35,10 @@ public class HospitalDirectory {
     public void deleteHospital(Hospital de) {
         hospital.remove(de);
     }
+
+    @Override
+    public String toString() {
+        return "HospitalDirectory{" + "hospital=" + hospital + '}';
+    }
     
 }

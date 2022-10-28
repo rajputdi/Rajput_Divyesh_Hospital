@@ -217,7 +217,7 @@ public class CreateCommunity extends javax.swing.JPanel {
     private void populateHospitalTable() {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
         DefaultTableModel model = (DefaultTableModel) tblHospital.getModel();
-        System.out.println(hospital);
+        System.out.println(hospital.toString());
         model.setRowCount(0);
         for (Hospital hp : hospital.getHospital()){
             Object[] row = new Object[4];

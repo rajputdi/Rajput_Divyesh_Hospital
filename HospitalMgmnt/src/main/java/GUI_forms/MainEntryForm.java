@@ -21,10 +21,14 @@ public class MainEntryForm extends javax.swing.JFrame {
      */
     HospitalDirectory hospital;
     DoctorDirectory doctor;
-    public MainEntryForm() {
+    public MainEntryForm(){
+        
+    }
+    
+    public MainEntryForm(DoctorDirectory doctor, HospitalDirectory hospital) {
         initComponents();
-        hospital = new HospitalDirectory();
-        doctor = new DoctorDirectory();
+        this.hospital = hospital;
+        this.doctor = doctor;
     }
 
     /**

@@ -17,7 +17,6 @@ public class MainComAdminForm extends javax.swing.JFrame {
      */
     HospitalDirectory hospital;
     public MainComAdminForm() {
-        initComponents();
     }
     
     public MainComAdminForm(HospitalDirectory hospital){
