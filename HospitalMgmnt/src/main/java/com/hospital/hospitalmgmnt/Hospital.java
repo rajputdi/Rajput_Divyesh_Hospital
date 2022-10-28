@@ -9,7 +9,7 @@ import java.io.*;
  *
  * @author Divyesh Rajput
  */
-public class Hospital implements Serializable {
+public class Hospital extends Community implements Serializable  {
     private String hospitalID;
     private String hospitalName;
     private String streetAddress; 

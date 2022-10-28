@@ -25,8 +25,6 @@ public class CreateVitalsPatient extends javax.swing.JPanel {
     public CreateVitalsPatient(PersonDirectory perDir) {
         initComponents();
         this.perDir = perDir;
-        pat.
-        
         populatePersonTable();
     }
 

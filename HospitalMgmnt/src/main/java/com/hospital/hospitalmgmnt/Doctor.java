@@ -11,8 +11,9 @@ package com.hospital.hospitalmgmnt;
 public class Doctor {
     private String drID;
     private String drName;
-    private String drDept;
+    private String drSpeciality;
     private String drHospital;
+    private String drContact;
 
     public String getDrHospital() {
         return drHospital;
@@ -38,13 +39,28 @@ public class Doctor {
         this.drName = drName;
     }
 
-    public String getdrDept() {
-        return drDept;
+    public String getDrSpeciality() {
+        return drSpeciality;
     }
 
-    public void setdrDept(String drDept) {
-        this.drDept = drDept;
+    public void setDrSpeciality(String drSpeciality) {
+        this.drSpeciality = drSpeciality;
     }
+
+    public String getDrContact() {
+        return drContact;
+    }
+
+    public void setDrContact(String drContact) {
+        this.drContact = drContact;
+    }
+    
+    @Override 
+    public String toString(){
+        return drID;
+    }
+
+
     
     
 }

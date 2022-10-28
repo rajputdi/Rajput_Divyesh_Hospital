@@ -4,6 +4,8 @@
  */
 package GUI_forms;
 
+import com.hospital.hospitalmgmnt.Doctor;
+import com.hospital.hospitalmgmnt.DoctorDirectory;
 import com.hospital.hospitalmgmnt.Hospital;
 import com.hospital.hospitalmgmnt.Person;
 import com.hospital.hospitalmgmnt.PersonDirectory;
@@ -20,7 +22,9 @@ public class CreatePersonPanel extends javax.swing.JPanel {
      * Creates new form CreatePersonPanel
      */
     PersonDirectory person;
+    DoctorDirectory doctor;
     Person per;
+    Doctor dr;
     public CreatePersonPanel(PersonDirectory person) {
         initComponents();
         this.person = person;

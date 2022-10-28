@@ -8,16 +8,14 @@ package com.hospital.hospitalmgmnt;
  *
  * @author Divyesh Rajput
  */
-public class Community extends City {
-    protected String community_name;
+public class City {
+    protected String cityName;
 
-    public String getCommunity_name() {
-        return community_name;
+    public String getCityName() {
+        return cityName;
     }
-
-    public void setCommunity_name(String community_name) {
-        this.community_name = community_name;
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
-    
     
 }
