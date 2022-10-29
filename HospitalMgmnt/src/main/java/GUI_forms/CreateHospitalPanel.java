@@ -6,6 +6,7 @@ package GUI_forms;
 
 import com.hospital.hospitalmgmnt.Hospital;
 import com.hospital.hospitalmgmnt.HospitalDirectory;
+import com.hospital.hospitalmgmnt.Person;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -95,7 +96,7 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Update");
+        jButton2.setText("Delete");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -200,8 +201,28 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        SearchHospitalPanel frm = new SearchHospitalPanel(hospital);
-        frm.setVisible(true);
+        int selectedRowIndex = tblHospital.getSelectedRow();
+        
+        Hospital hos = (Hospital) tblHospital.getValueAt(selectedRowIndex , 0);
+        hospital.deleteHospital(hos);
+        //employee.deleteEmployee(selectedEmployee);
+        DefaultTableModel tblModel = (DefaultTableModel) tblHospital.getModel();
+        
+        //delete row
+        if(tblHospital.getSelectedRowCount()==1){
+            
+            tblModel.removeRow(tblHospital.getSelectedRow());
+        }else{
+            if (tblHospital.getRowCount()==0){
+                JOptionPane.showMessageDialog(this, "Please select a record to delete");
+                
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "Please select a single row only");
+            }
+        }
+        
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
