@@ -68,7 +68,7 @@ public class CreateVitalsPatient extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(51, 153, 255));
 
-        lblheading3.setFont(new java.awt.Font("Footlight MT Light", 1, 18)); // NOI18N
+        lblheading3.setFont(new java.awt.Font("Footlight MT Light", 1, 24)); // NOI18N
         lblheading3.setForeground(new java.awt.Color(255, 255, 255));
         lblheading3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblheading3.setText("Create Vitals ");
@@ -90,7 +90,7 @@ public class CreateVitalsPatient extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
         lblbp.setText("Blood Pressure");
 
@@ -262,9 +262,14 @@ public class CreateVitalsPatient extends javax.swing.JPanel {
         String visitId = "#VI_"+(patDir.getPatientList().get(selectedRowIndex).getEncounterList().size()+1);
         
         VitalSign vitalsign_list = setVitalSign();
+        if (vitalsign_list == null){
+            JOptionPane.showMessageDialog(this, "Please add all the vitals before you proceed");
+        }
+        else {
         Encounter encounterInfo = new Encounter();
         encounterInfo.setTimestamp(encounterDate);
         encounterInfo.setVisit_ID(visitId);
+        
         try{
             encounterInfo.setVs(vitalsign_list);
         
@@ -276,6 +281,12 @@ public class CreateVitalsPatient extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this,"Please fill all the vitals");
         return;
         }
+        }
+        txtTemp.setText("");
+        txtWeight.setText("");
+        txtbp.setText("");
+        txthr.setText("");
+        
     }//GEN-LAST:event_btnaddActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

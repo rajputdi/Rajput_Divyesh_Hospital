@@ -89,6 +89,7 @@ public class CreateCommunity extends javax.swing.JPanel {
 
         jLabel3.setText("City");
 
+        jButton2.setBackground(new java.awt.Color(153, 255, 153));
         jButton2.setText("Update");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,6 +110,7 @@ public class CreateCommunity extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(tblHospital);
 
+        jButton3.setBackground(new java.awt.Color(255, 255, 153));
         jButton3.setText("View");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

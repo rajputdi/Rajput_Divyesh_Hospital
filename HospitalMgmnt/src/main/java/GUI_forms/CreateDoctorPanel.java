@@ -92,20 +92,24 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 83, Short.MAX_VALUE)
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel3.setBackground(new java.awt.Color(204, 255, 255));
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Name*");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Speciality");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setText("Hospital Name:");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel5.setText("Contact No.");
 
         btnCreateDoctor.setBackground(new java.awt.Color(0, 204, 51));
         btnCreateDoctor.setFont(new java.awt.Font("Felix Titling", 0, 14)); // NOI18N
         btnCreateDoctor.setText("Create");
-        btnCreateDoctor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnCreateDoctor.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnCreateDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateDoctorActionPerformed(evt);
@@ -122,7 +126,14 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel6.setText("Doctor ID");
+
+        txtDrID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDrIDActionPerformed(evt);
+            }
+        });
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cardiology", "Family Medicine", "Neurology", "Dermatology", "Orthopedics", "Oncology" }));
 
@@ -137,8 +148,8 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDrPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(txtDrPhone))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -149,13 +160,13 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
                             .addComponent(txtDrID)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jComboBox2, 0, 245, Short.MAX_VALUE))))
-                .addContainerGap(312, Short.MAX_VALUE))
+                .addContainerGap(308, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,7 +211,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(70, 70, 70)
+                .addGap(43, 43, 43)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,6 +222,25 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateDoctorActionPerformed
+      if( txtDoctor.getText().isEmpty()|| checkForAlphaNum(txtDoctor.getText())){
+            JOptionPane.showMessageDialog(this, "Doctor name cannot be empty or alphanumeric");
+            return;
+        }
+ 
+     if( checkForAlphaNum(txtDrPhone.getText()) ){
+            JOptionPane.showMessageDialog(this, "Contact Number should be numeric only!!!");
+            return;
+     }
+     if (txtDrPhone.getText().length()!= 10){
+            JOptionPane.showMessageDialog(this, "Contact Number should be numeric and 10 digits only!!!");
+            return;
+        } 
+     if( checkForAlphaNum(txtDrID.getText())){
+            JOptionPane.showMessageDialog(this, "DoctorID cannot be alphanumeric!!!");
+            return;
+        }
+        
+        
       String drID = txtDrID.getText();
       String drName = txtDoctor.getText();
       String hSpeciality = jComboBox2.getSelectedItem().toString();
@@ -232,6 +262,10 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void txtDrIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDrIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDrIDActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateDoctor;
@@ -251,4 +285,13 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtDrID;
     private javax.swing.JTextField txtDrPhone;
     // End of variables declaration//GEN-END:variables
+
+    private boolean checkForAlphaNum(String empNo){
+        for(int i=0;i<empNo.length();i++){
+           char c = empNo.charAt(i);
+           if((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+                return true;
+           }
+        return false;
+    }
 }

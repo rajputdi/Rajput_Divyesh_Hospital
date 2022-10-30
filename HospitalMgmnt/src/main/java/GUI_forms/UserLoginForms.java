@@ -67,7 +67,9 @@ public class UserLoginForms extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+
+        jButton1.setBackground(new java.awt.Color(255, 204, 255));
         jButton1.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         jButton1.setText("Hospital Admin");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -77,7 +79,7 @@ public class UserLoginForms extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(204, 255, 255));
+        jButton2.setBackground(new java.awt.Color(255, 204, 255));
         jButton2.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         jButton2.setText("Doctor");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -86,7 +88,7 @@ public class UserLoginForms extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(204, 255, 255));
+        jButton3.setBackground(new java.awt.Color(255, 204, 255));
         jButton3.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         jButton3.setText("Person");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -95,7 +97,7 @@ public class UserLoginForms extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setBackground(new java.awt.Color(204, 255, 255));
+        jButton5.setBackground(new java.awt.Color(255, 204, 255));
         jButton5.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         jButton5.setText("Community Admin");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +106,7 @@ public class UserLoginForms extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(204, 255, 255));
+        jButton6.setBackground(new java.awt.Color(255, 204, 255));
         jButton6.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
         jButton6.setText("View Hospitals and Doctors");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -122,7 +124,7 @@ public class UserLoginForms extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 153, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel1.setFont(new java.awt.Font("Footlight MT Light", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Footlight MT Light", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Doctor-Patient Management System");
@@ -140,35 +142,49 @@ public class UserLoginForms extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel2.setText("-> Create Hospital");
 
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setText("-> Create Doctor");
 
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel4.setText("-> Assign hospital to a doctor");
 
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel5.setText("-> Update/Delete a doctor");
 
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setText("-> Create Patient from Person Directory");
 
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setText("-> Create Vitals for a Patient");
 
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel8.setText("-> View Encounter History for a Patient");
 
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel9.setText("-> Create Person ");
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel10.setText("-> View/Update/Delete a person");
 
+        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel11.setText("Assign Community to a Hospital <-");
 
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel12.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel12.setText("Assign City to a Hospital <-");
 
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel13.setText("Update Community and City <-");
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel14.setText("View hospitals in a community or a city <-");
 
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel15.setText("View Doctors in a particular hospital <-");
 
@@ -185,7 +201,7 @@ public class UserLoginForms extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -220,7 +236,7 @@ public class UserLoginForms extends javax.swing.JFrame {
                                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton6))))

@@ -89,8 +89,9 @@ public class LoginPageForm extends javax.swing.JFrame {
         jLabel1.setText("Username");
 
         Login.setBackground(new java.awt.Color(153, 255, 153));
-        Login.setFont(new java.awt.Font("Yu Gothic Medium", 1, 14)); // NOI18N
+        Login.setFont(new java.awt.Font("Yu Gothic Medium", 1, 18)); // NOI18N
         Login.setText("Login");
+        Login.setAlignmentY(0.0F);
         Login.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 102)));
         Login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,11 +109,13 @@ public class LoginPageForm extends javax.swing.JFrame {
         jLabel2.setText("Password");
 
         jPanel3.setBackground(new java.awt.Color(51, 204, 255));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel3.setFont(new java.awt.Font("Footlight MT Light", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Login");
+        jLabel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -253,7 +256,7 @@ public class LoginPageForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 474, Short.MAX_VALUE)
+            .addGap(0, 476, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)

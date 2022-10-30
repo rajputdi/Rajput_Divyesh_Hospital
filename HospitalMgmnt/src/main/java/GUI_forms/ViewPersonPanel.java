@@ -56,7 +56,7 @@ public class ViewPersonPanel extends javax.swing.JPanel {
         txtPrEmail = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(204, 204, 255));
+        setBackground(new java.awt.Color(204, 255, 255));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -107,6 +107,7 @@ public class ViewPersonPanel extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(tblPerson);
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 153));
         jButton1.setText("View");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,6 +115,7 @@ public class ViewPersonPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(255, 204, 204));
         jButton2.setText("Delete");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,6 +287,11 @@ public class ViewPersonPanel extends javax.swing.JPanel {
         
         JOptionPane.showMessageDialog(this, "Record Updated Successfully!!!");
         
+        txtPrName.setText("");
+        txtPrAge.setText("");
+        txtPrPhone.setText("");
+        txtPr_StrtAdd.setText("");
+        txtPrEmail.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

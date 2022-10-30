@@ -58,6 +58,7 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setLayout(new java.awt.CardLayout());
 
+        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 255));
@@ -89,6 +90,7 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
 
         jLabel5.setText("Phone No.: ");
 
+        jButton1.setBackground(new java.awt.Color(153, 255, 153));
         jButton1.setText("Create");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,6 +98,7 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(255, 153, 153));
         jButton2.setText("Delete");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
