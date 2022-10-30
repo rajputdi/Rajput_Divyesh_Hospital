@@ -153,9 +153,9 @@ public class UserLoginForms extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        MainEntryForm mf = new MainEntryForm();
-        mf.setVisible(true);
-            this.setVisible(false);
+        MainDoctorForm md = new MainDoctorForm(perDir);
+        md.setVisible(true);
+        this.setVisible(false);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -168,10 +168,7 @@ public class UserLoginForms extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        MainDoctorForm md = new MainDoctorForm(perDir);
-        md.setVisible(true);
-        this.setVisible(false);
-        
+         
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

@@ -120,8 +120,6 @@ public class CreateVitalsPatient extends javax.swing.JPanel {
 
         jLabel1.setText("PatientID");
 
-        jTextField1.setText("jTextField1");
-
         jLabel2.setText("Patient Name");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);

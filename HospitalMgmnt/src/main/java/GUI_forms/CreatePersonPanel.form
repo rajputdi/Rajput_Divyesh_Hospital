@@ -59,6 +59,11 @@
                                   <Component id="txtPrEmail" alignment="0" min="-2" pref="278" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jPrPhone2" min="-2" pref="129" max="-2" attributes="0"/>
+                              <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                              <Component id="txtHouseNo" min="-2" pref="278" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <Component id="btnCreatePatient" alignment="1" min="-2" pref="430" max="-2" attributes="0"/>
                   </Group>
@@ -109,9 +114,14 @@
                       <Component id="txtPrEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jPrPhone1" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="txtHouseNo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPrPhone2" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Component id="btnCreatePatient" min="-2" pref="51" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -288,6 +298,16 @@
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JLabel" name="jPrPhone2">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Perpetua" size="14" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="House No"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtHouseNo">
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

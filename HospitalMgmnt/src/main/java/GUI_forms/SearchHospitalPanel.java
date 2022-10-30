@@ -4,10 +4,13 @@
  */
 package GUI_forms;
 
+import com.hospital.hospitalmgmnt.Doctor;
+import com.hospital.hospitalmgmnt.DoctorDirectory;
 import com.hospital.hospitalmgmnt.FormsPanels.CreatePerson;
 import com.hospital.hospitalmgmnt.Hospital;
 import com.hospital.hospitalmgmnt.HospitalDirectory;
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,10 +23,14 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
      * Creates new form SearchHospitalPanel
      */
     HospitalDirectory hospital;
-    public SearchHospitalPanel(HospitalDirectory hospital) {
+    DoctorDirectory doctor;
+    Doctor dr;
+    public SearchHospitalPanel(DoctorDirectory doctor, HospitalDirectory hospital) {
         initComponents();
         this.hospital = hospital;
+        this.doctor= doctor;
         populateTable();  
+        
     }
 
     /**
@@ -39,11 +46,11 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jCity = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        txtCity = new javax.swing.JTextField();
+        txtCommunity = new javax.swing.JTextField();
         jSearchHospital = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblDoctor = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblHospital = new javax.swing.JTable();
@@ -55,10 +62,6 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Community");
 
-        jCity.setText("jTextField1");
-
-        jTextField1.setText("jTextField1");
-
         jSearchHospital.setText("Search");
         jSearchHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +69,7 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblDoctor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -77,7 +80,7 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
                 "DoctorID", "Doctor Name", "Department", "Contact No. "
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblDoctor);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("(Please click a record to view doctors in that hospital)");
@@ -96,6 +99,11 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblHospital);
 
         jViewDoctors.setText("View Doctors");
+        jViewDoctors.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jViewDoctorsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -113,8 +121,8 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
                                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(23, 23, 23)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jCity, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
-                                    .addComponent(jTextField1))
+                                    .addComponent(txtCity, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
+                                    .addComponent(txtCommunity))
                                 .addGap(18, 18, 18)
                                 .addComponent(jSearchHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)))
@@ -133,11 +141,11 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
                         .addGap(81, 81, 81)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(82, 82, 82)
                         .addComponent(jSearchHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -188,14 +196,49 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
 
     private void jSearchHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSearchHospitalActionPerformed
         // TODO add your handling code here:
-        CreatePerson cp = new CreatePerson();
-        cp.setVisible(true);
+      String citySearch =  txtCity.getText();
+      String communitySearch = txtCommunity.getText();
+      
+      searchHospitals(citySearch, communitySearch);
 
     }//GEN-LAST:event_jSearchHospitalActionPerformed
 
+    private void jViewDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jViewDoctorsActionPerformed
+        // TODO add your handling code here:
+
+        int selectedRowIndex = tblHospital.getSelectedRow();
+
+        if (selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a record to view");
+        }
+
+        DefaultTableModel model = (DefaultTableModel) tblDoctor.getModel();
+        Hospital hos;
+        int flag1 = -1;
+        String hName = (String) tblHospital.getValueAt(selectedRowIndex , 1);
+        model.setRowCount(0);
+        for (Doctor dr : doctor.getdoctorList()){
+           if(dr.getDrHospital().equals(hName)){
+                    Object[] row = new Object[5];
+                    row[0] = dr;
+                    row[1]= dr.getdrName();
+                    row[2]= dr.getDrSpeciality();
+                    row[3]= dr.getDrContact();
+                    model.addRow(row);
+                    flag1 = 1;
+                    
+           }
+           else
+               flag1 = -1;
+           
+        }
+        if (flag1 < 0)
+            JOptionPane.showMessageDialog(this, "Doctor Not Found!!!");
+        
+    }//GEN-LAST:event_jViewDoctorsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jCity;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -204,10 +247,11 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jSearchHospital;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton jViewDoctors;
+    private javax.swing.JTable tblDoctor;
     private javax.swing.JTable tblHospital;
+    private javax.swing.JTextField txtCity;
+    private javax.swing.JTextField txtCommunity;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {
@@ -217,11 +261,66 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
         for (Hospital hp : hospital.getHospital()){
             Object[] row = new Object[5];
             row[0] = hp;
-            row[1]= hp.getHospitalID();
-            row[2]= hp.getHospitalName();
-            row[3]= hp.getPhoneNo();
-            row[4]= hp.getStreetAddress();
+            row[1]= hp.getHospitalName();
+            row[2]= hp.getStreetAddress();
+            row[3]=hp.getCommunity_name();
+            row[4]=hp.getCityName();
+            
             model.addRow(row);
         }
+        
+    }
+
+
+    private void searchHospitals(String citySearch, String communitySearch) {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            DefaultTableModel tblmodel = (DefaultTableModel) tblHospital.getModel();
+        tblmodel.setRowCount(0);
+        int flag = -1;
+        
+        for (Hospital hp : hospital.getHospital()){
+            Object[] row = new Object[5];
+            if(!"".equals(citySearch) && !"".equals(communitySearch) ){
+                if (hp.getCityName().equals(citySearch) && hp.getCommunity_name().equals(communitySearch)){
+                    row[0] = hp;
+            row[1]= hp.getHospitalName();
+            row[2]= hp.getStreetAddress();
+            row[3]=hp.getCommunity_name();
+            row[4]=hp.getCityName();
+                    tblmodel.addRow(row);
+                    flag = 1;
+                    
+                }
+            }
+            else if (!"".equals (citySearch)){
+                if (hp.getCityName().equals(citySearch)){
+                    row[0] = hp;
+            row[1]= hp.getHospitalName();
+            row[2]= hp.getStreetAddress();
+            row[3]=hp.getCommunity_name();
+            row[4]=hp.getCityName();
+                    tblmodel.addRow(row);
+                    
+                    flag = 1;
+                }
+            } else if (!"".equals (communitySearch)){
+                if (hp.getCommunity_name().equals(communitySearch)){
+                    row[0] = hp;
+                    row[1]= hp.getHospitalName();
+                    row[2]= hp.getStreetAddress();
+                    row[3]=hp.getCommunity_name();
+                    row[4]=hp.getCityName();
+                    
+                    tblmodel.addRow(row);
+                    flag = 1; 
+                }    
+        } else {
+                flag = -1;
+            }
+            
+    }
+    if (flag <0){
+                JOptionPane.showMessageDialog(this, "Hospital Not Found!!!");
+            }
     }
 }

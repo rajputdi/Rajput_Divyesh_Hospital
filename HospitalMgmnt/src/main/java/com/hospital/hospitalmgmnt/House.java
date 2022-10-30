@@ -8,8 +8,16 @@ package com.hospital.hospitalmgmnt;
  *
  * @author Divyesh Rajput
  */
-public class House {
+public class House extends Community{
     public String house_no;
+
+    public String getHouse_no() {
+        return house_no;
+    }
+
+    public void setHouse_no(String house_no) {
+        this.house_no = house_no;
+    }
     
     
 }

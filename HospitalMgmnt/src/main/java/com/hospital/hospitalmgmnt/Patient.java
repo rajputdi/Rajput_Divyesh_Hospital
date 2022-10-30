@@ -12,6 +12,7 @@ import java.util.ArrayList;
  */
 public class Patient extends Person{
     private String patientID;
+    
     private ArrayList<Encounter> encounterList = new ArrayList<>();
 
     public ArrayList<Encounter> getEncounterList() {

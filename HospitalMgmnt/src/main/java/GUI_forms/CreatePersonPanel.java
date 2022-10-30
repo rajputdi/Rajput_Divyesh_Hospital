@@ -55,6 +55,8 @@ public class CreatePersonPanel extends javax.swing.JPanel {
         txtPrEmail = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jPrPhone2 = new javax.swing.JLabel();
+        txtHouseNo = new javax.swing.JTextField();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -116,6 +118,9 @@ public class CreatePersonPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
+        jPrPhone2.setFont(new java.awt.Font("Perpetua", 1, 14)); // NOI18N
+        jPrPhone2.setText("House No");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -130,7 +135,11 @@ public class CreatePersonPanel extends javax.swing.JPanel {
                             .addGap(18, 18, 18)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jGenderBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtPrEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(txtPrEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jPrPhone2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(txtHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(btnCreatePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(56, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -169,9 +178,13 @@ public class CreatePersonPanel extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtPrEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPrPhone1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtHouseNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPrPhone2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addComponent(btnCreatePatient, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(98, 98, 98))
+                .addGap(68, 68, 68))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(0, 59, Short.MAX_VALUE)
@@ -231,6 +244,7 @@ public class CreatePersonPanel extends javax.swing.JPanel {
       String pStreet = txtPr_StrtAdd.getText();
       String pPhone= txtPrPhone.getText();
       String pEmail = txtPrEmail.getText();
+      String pHouseNo = txtHouseNo.getText();
       
       per = person.createNewPerson();
       per.setPr_name(pName);
@@ -239,6 +253,7 @@ public class CreatePersonPanel extends javax.swing.JPanel {
       per.setPr_streetAddress(pStreet);
       per.setPr_phone(pPhone);
       per.setPr_email(pEmail);
+      per.setHouse_no(pHouseNo);
       
       
       JOptionPane.showMessageDialog(this, "New Person added to the directory");
@@ -257,6 +272,8 @@ public class CreatePersonPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jPrName;
     private javax.swing.JLabel jPrPhone;
     private javax.swing.JLabel jPrPhone1;
+    private javax.swing.JLabel jPrPhone2;
+    private javax.swing.JTextField txtHouseNo;
     private javax.swing.JTextField txtPrAge;
     private javax.swing.JTextField txtPrEmail;
     private javax.swing.JTextField txtPrName;

@@ -8,7 +8,7 @@ package com.hospital.hospitalmgmnt;
  *
  * @author Divyesh Rajput
  */
-public class Person {
+public class Person extends House{
     private String pr_name;
     private String pr_gender;
     private String pr_age;

@@ -169,6 +169,8 @@ public class MainPatientForm extends javax.swing.JFrame {
 
     private void btnViewDoctorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDoctorsActionPerformed
         // TODO add your handling code here:
+        SearchHospitalPanel shp = new SearchHospitalPanel(doctor, hospital);
+        jSplitPane1.setRightComponent(shp);
    
     }//GEN-LAST:event_btnViewDoctorsActionPerformed
 
