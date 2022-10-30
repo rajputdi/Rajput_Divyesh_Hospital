@@ -8,7 +8,7 @@ package com.hospital.hospitalmgmnt;
  *
  * @author Divyesh Rajput
  */
-class VitalSign {
+public class VitalSign {
     private int bloodPr;
     private int hrtRate;
     private int temp;

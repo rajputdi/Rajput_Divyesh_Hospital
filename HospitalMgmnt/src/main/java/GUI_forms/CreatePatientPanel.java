@@ -4,6 +4,14 @@
  */
 package GUI_forms;
 
+import com.hospital.hospitalmgmnt.Doctor;
+import com.hospital.hospitalmgmnt.Patient;
+import com.hospital.hospitalmgmnt.PatientDirectory;
+import com.hospital.hospitalmgmnt.Person;
+import com.hospital.hospitalmgmnt.PersonDirectory;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Divyesh Rajput
@@ -13,8 +21,15 @@ public class CreatePatientPanel extends javax.swing.JPanel {
     /**
      * Creates new form CreatePatientPanel
      */
-    public CreatePatientPanel() {
+    PersonDirectory perDir;
+    PatientDirectory patDir;
+    Patient pat;
+    public CreatePatientPanel(PersonDirectory perDir, PatientDirectory patDir) {
         initComponents();
+        this.perDir = perDir;
+        this.patDir = patDir;
+        
+        populatePersonTable();
     }
 
     /**
@@ -35,7 +50,7 @@ public class CreatePatientPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jPrAge = new javax.swing.JLabel();
-        txtPrAge = new javax.swing.JTextField();
+        jPatientID = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -66,7 +81,7 @@ public class CreatePatientPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("View/Delete/Update Person");
+        jLabel1.setText("Create Patient");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -115,6 +130,11 @@ public class CreatePatientPanel extends javax.swing.JPanel {
         jPrAge.setText("Patient ID:");
 
         jButton3.setText("Create Patient");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Name:");
 
@@ -159,7 +179,7 @@ public class CreatePatientPanel extends javax.swing.JPanel {
                                                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(txtPrAge, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                                                    .addComponent(jPatientID, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
                                                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                                             .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -198,7 +218,7 @@ public class CreatePatientPanel extends javax.swing.JPanel {
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(52, 52, 52)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtPrAge)
+                            .addComponent(jPatientID)
                             .addComponent(jPrAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -252,6 +272,23 @@ public class CreatePatientPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+       int selectedRowIndex = tblPerson.getSelectedRow();
+        
+        if (selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this, "Please select a record to view");
+        }
+        
+        DefaultTableModel model = (DefaultTableModel) tblPerson.getModel();
+        Person per;
+        per = (Person) model.getValueAt(selectedRowIndex , 0);
+        
+        jLabel3.setText(String.valueOf(per.getPr_name()));
+        jLabel5.setText(String.valueOf(per.getPr_gender()));
+        jLabel7.setText(String.valueOf(per.getPr_age()));
+        
+        jLabel9.setText(String.valueOf(per.getPr_streetAddress()));
+        jLabel13.setText(String.valueOf(per.getPr_email()));
+        jLabel11.setText(String.valueOf(per.getPr_phone())); 
       
 
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -260,6 +297,31 @@ public class CreatePatientPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+      String pID = jPatientID.getText();
+      String pName = jLabel3.getText();
+      String pAge = jLabel7.getText();
+      String pGender = jLabel5.getText();
+      String pStreet = jLabel9.getText();
+      String pPhone= jLabel11.getText();
+      String pEmail = jLabel13.getText();
+      //String pHouseNo = txtHouseNo.getText();
+      
+      pat = patDir.createNewPatient();
+      pat.setPatient_ID(pID);
+      pat.setPr_name(pName);
+      pat.setPr_age(pAge);
+      pat.setPr_gender(pGender);
+      pat.setPr_streetAddress(pStreet);
+      pat.setPr_phone(pPhone);
+      pat.setPr_email(pEmail);
+      
+      
+      
+      JOptionPane.showMessageDialog(this, "New Person added to the directory"); 
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -282,9 +344,23 @@ public class CreatePatientPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField jPatientID;
     private javax.swing.JLabel jPrAge;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblPerson;
-    private javax.swing.JTextField txtPrAge;
     // End of variables declaration//GEN-END:variables
+
+    private void populatePersonTable() {
+     //   throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+            DefaultTableModel model = (DefaultTableModel) tblPerson.getModel();
+        model.setRowCount(0);
+        for (Person pr : perDir.getPersonList()){
+            Object[] row = new Object[4];
+            row[0] = pr;
+            row[1]= pr.getPr_age();
+            row[2]= pr.getPr_gender();
+            row[3]= pr.getPr_email();
+            model.addRow(row);
+        }
+    }
 }

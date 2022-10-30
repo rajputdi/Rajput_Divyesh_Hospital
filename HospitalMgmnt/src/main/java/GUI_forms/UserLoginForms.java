@@ -6,6 +6,7 @@ package GUI_forms;
 
 import com.hospital.hospitalmgmnt.DoctorDirectory;
 import com.hospital.hospitalmgmnt.HospitalDirectory;
+import com.hospital.hospitalmgmnt.PatientDirectory;
 import com.hospital.hospitalmgmnt.PersonDirectory;
 import javax.swing.JFrame;
 
@@ -21,11 +22,13 @@ public class UserLoginForms extends javax.swing.JFrame {
     PersonDirectory perDir;
     DoctorDirectory doctor;
     HospitalDirectory hospital;
+    PatientDirectory patDir;
     public UserLoginForms() {
         initComponents();
         this.perDir= new PersonDirectory();
         this.doctor = new DoctorDirectory();
         this.hospital = new HospitalDirectory();
+        this.patDir = new PatientDirectory();
     }
 
     /**
@@ -153,7 +156,7 @@ public class UserLoginForms extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        MainDoctorForm md = new MainDoctorForm(perDir);
+        MainDoctorForm md = new MainDoctorForm(perDir, patDir);
         md.setVisible(true);
         this.setVisible(false);
         

@@ -4,6 +4,7 @@
  */
 package GUI_forms;
 
+import com.hospital.hospitalmgmnt.PatientDirectory;
 import com.hospital.hospitalmgmnt.PersonDirectory;
 
 /**
@@ -16,13 +17,15 @@ public class MainDoctorForm extends javax.swing.JFrame {
      * Creates new form MainDoctorForm
      */
     PersonDirectory perDir;
+    PatientDirectory patDir;
     public MainDoctorForm(){
         
     }
     
-    public MainDoctorForm(PersonDirectory perDir) {
+    public MainDoctorForm(PersonDirectory perDir, PatientDirectory patDir) {
         initComponents();
         this.perDir = perDir;
+        this.patDir = patDir;
     }
 
     /**
@@ -64,6 +67,11 @@ public class MainDoctorForm extends javax.swing.JFrame {
         });
 
         jButton1.setText("Create Patient");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -142,18 +150,20 @@ public class MainDoctorForm extends javax.swing.JFrame {
 
     private void btnCreateVitalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateVitalsActionPerformed
         // TODO add your handling code here:
-        CreateVitalsPatient cvp = new CreateVitalsPatient(perDir);
+        CreateVitalsPatient cvp = new CreateVitalsPatient(perDir, patDir);
         jSplitPane1.setRightComponent(cvp);
     }//GEN-LAST:event_btnCreateVitalsActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        //      CreateDoctorPanel cd = new CreateDoctorPanel(doctor, hospital );
-        //  jSplitPane1.setRightComponent(cd);
-        //ViewPersonPanel vp = new ViewPersonPanel(person);
-        //jSplitPane1.setRightComponent(vp);
+
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        CreatePatientPanel cpp = new CreatePatientPanel(perDir, patDir);
+        jSplitPane1.setRightComponent(cpp);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

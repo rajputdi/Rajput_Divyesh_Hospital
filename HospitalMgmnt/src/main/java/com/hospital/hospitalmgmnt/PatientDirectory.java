@@ -25,8 +25,8 @@ public class PatientDirectory {
         this.patientList = patientList;
     }
 
-      public Patient createNewPatient(Patient newPatient){
-        
+      public Patient createNewPatient(){
+        Patient newPatient = new Patient();
         patientList.add(newPatient);
         return newPatient;
     }   

@@ -336,7 +336,7 @@ public class ViewPersonPanel extends javax.swing.JPanel {
     DefaultTableModel model = (DefaultTableModel) tblPerson.getModel();
         model.setRowCount(0);
         for (Person per : perDir.getPersonList()){
-            Object[] row = new Object[5];
+            Object[] row = new Object[4];
             row[0] = per;
             row[1]= per.getPr_age();
             row[2]= per.getPr_gender();

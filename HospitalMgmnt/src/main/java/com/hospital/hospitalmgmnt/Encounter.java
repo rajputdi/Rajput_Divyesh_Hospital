@@ -11,18 +11,11 @@ import java.util.Date;
  * @author Divyesh Rajput
  */
 public class Encounter {
-    private String patient_ID;
+    
     private String visit_ID;
     private Date timestamp;
     private VitalSign vs;
 
-    public String getPatient_ID() {
-        return patient_ID;
-    }
-
-    public void setPatient_ID(String patient_ID) {
-        this.patient_ID = patient_ID;
-    }
 
     public String getVisit_ID() {
         return visit_ID;
