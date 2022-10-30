@@ -122,7 +122,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Times New Roman" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Assign Community to a Patient"/>
+                    <Property name="text" type="java.lang.String" value="Assign Community to a Person"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
@@ -181,7 +181,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Gabriola" size="24" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Community Admin will assign a Community and City to a particular city"/>
+                    <Property name="text" type="java.lang.String" value="Community Admin will assign a Community and City to a particular person"/>
                   </Properties>
                 </Component>
               </SubComponents>

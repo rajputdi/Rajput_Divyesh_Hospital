@@ -222,7 +222,7 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateDoctorActionPerformed
-      if( txtDoctor.getText().isEmpty()|| checkForAlphaNum(txtDoctor.getText())){
+      if( txtDoctor.getText().isEmpty()|| !checkForAlphaNum(txtDoctor.getText())){
             JOptionPane.showMessageDialog(this, "Doctor name cannot be empty or alphanumeric");
             return;
         }

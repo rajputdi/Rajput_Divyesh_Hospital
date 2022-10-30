@@ -246,7 +246,7 @@ public class CreatePersonPanel extends javax.swing.JPanel {
     private void btnCreatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePatientActionPerformed
       
      
-     if( txtPrName.getText().isEmpty()|| checkForAlphaNum(txtPrName.getText())){
+     if( txtPrName.getText().isEmpty()|| !checkForAlphaNum(txtPrName.getText())){
             JOptionPane.showMessageDialog(this, "Person Name cannot be empty or alphanumeric");
             return;
         }
@@ -270,7 +270,7 @@ public class CreatePersonPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Contact Number should be numeric and 10 digits only!!!");
             return;
         } 
-     if( checkForAlphaNum(txtHouseNo.getText())){
+     if( !checkForAlphaNum(txtHouseNo.getText())){
             JOptionPane.showMessageDialog(this, "House Number cannot be alphanumeric!!!");
             return;
         }

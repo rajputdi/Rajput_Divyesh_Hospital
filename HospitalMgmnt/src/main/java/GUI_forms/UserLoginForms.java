@@ -352,15 +352,16 @@ public class UserLoginForms extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         //System.out.println(hospital);
-        LoginPageForm lp = new LoginPageForm(doctor, hospital, perDir);
+        LoginPageForm lp = new LoginPageForm(doctor, hospital, perDir,patDir);
         lp.setVisible(true);
         lp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
-        MainPatientForm mpf = new MainPatientForm(doctor, hospital);
+        MainPatientForm mpf = new MainPatientForm(doctor, hospital, patDir);
         mpf.setVisible(true);
+        mpf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         //this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 

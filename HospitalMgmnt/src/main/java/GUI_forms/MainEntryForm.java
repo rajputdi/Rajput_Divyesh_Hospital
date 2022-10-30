@@ -5,7 +5,7 @@
 package GUI_forms;
 
 import com.hospital.hospitalmgmnt.DoctorDirectory;
-import com.hospital.hospitalmgmnt.FormsPanels.mainPanel;
+//import com.hospital.hospitalmgmnt.FormsPanels.mainPanel;
 import com.hospital.hospitalmgmnt.HospitalDirectory;
 import java.awt.CardLayout;
 

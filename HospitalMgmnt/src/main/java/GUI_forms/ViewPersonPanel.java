@@ -144,6 +144,7 @@ public class ViewPersonPanel extends javax.swing.JPanel {
         jPrPhone1.setFont(new java.awt.Font("Perpetua", 1, 14)); // NOI18N
         jPrPhone1.setText("Email Address");
 
+        jButton3.setBackground(new java.awt.Color(153, 255, 153));
         jButton3.setText("Update");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

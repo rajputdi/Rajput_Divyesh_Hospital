@@ -6,7 +6,7 @@ package GUI_forms;
 
 import com.hospital.hospitalmgmnt.Doctor;
 import com.hospital.hospitalmgmnt.DoctorDirectory;
-import com.hospital.hospitalmgmnt.FormsPanels.CreatePerson;
+//import com.hospital.hospitalmgmnt.FormsPanels.CreatePerson;
 import com.hospital.hospitalmgmnt.Hospital;
 import com.hospital.hospitalmgmnt.HospitalDirectory;
 import java.awt.CardLayout;
@@ -211,6 +211,11 @@ public class SearchHospitalPanel extends javax.swing.JPanel {
 
     private void jSearchHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSearchHospitalActionPerformed
         // TODO add your handling code here:
+      if(txtCity.getText().isEmpty()||txtCommunity.getText().isEmpty()){
+          String citySearch ="";
+          String communitySearch="";
+      }
+          
       String citySearch =  txtCity.getText();
       String communitySearch = txtCommunity.getText();
       

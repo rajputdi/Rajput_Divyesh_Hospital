@@ -5,6 +5,7 @@
 package GUI_forms;
 
 import com.hospital.hospitalmgmnt.HospitalDirectory;
+import com.hospital.hospitalmgmnt.PatientDirectory;
 import com.hospital.hospitalmgmnt.PersonDirectory;
 
 /**
@@ -18,6 +19,7 @@ public class MainComAdminForm extends javax.swing.JFrame {
      */
     HospitalDirectory hospital;
     PersonDirectory perDir;
+    PatientDirectory patDir;
     public MainComAdminForm() {
     }
     
@@ -26,10 +28,11 @@ public class MainComAdminForm extends javax.swing.JFrame {
         this.hospital = hospital;
         
     }
-    public MainComAdminForm(HospitalDirectory hospital, PersonDirectory perDir){
+    public MainComAdminForm(HospitalDirectory hospital, PersonDirectory perDir, PatientDirectory patDir){
         initComponents();
         this.hospital = hospital;
         this.perDir = perDir;
+        this.patDir = patDir;
         
     }
 
@@ -67,7 +70,7 @@ public class MainComAdminForm extends javax.swing.JFrame {
         });
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
-        jButton2.setText("Assign Community to a Patient");
+        jButton2.setText("Assign Community to a Person");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -99,7 +102,7 @@ public class MainComAdminForm extends javax.swing.JFrame {
         jLabel1.setText("Community Admin will assign a Community and City to a particular hospital");
 
         jLabel2.setFont(new java.awt.Font("Gabriola", 1, 24)); // NOI18N
-        jLabel2.setText("Community Admin will assign a Community and City to a particular city");
+        jLabel2.setText("Community Admin will assign a Community and City to a particular person");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);

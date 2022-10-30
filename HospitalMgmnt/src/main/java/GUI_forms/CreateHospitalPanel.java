@@ -187,11 +187,36 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        
+        if( txtHospitalID.getText().isEmpty()|| checkForAlphaNum(txtHospitalID.getText())){
+            JOptionPane.showMessageDialog(this, "Hospital ID cannot be empty or alphanumeric");
+            return;
+        }
+        
+        if( txtHospitalName.getText().isEmpty()|| !checkForAlphaNum(txtHospitalName.getText())){
+            JOptionPane.showMessageDialog(this, "Hospital Name cannot be empty or alphanumeric");
+            return;
+        }
+        if(txtHospitalStreet.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Hospital Street cannot be empty");
+            return;
+        }
+        if( checkForAlphaNum(txtHospitalPhone.getText()) ){
+            JOptionPane.showMessageDialog(this, "Contact Number should be numeric only!!!");
+            return;
+        }
+        if (txtHospitalPhone.getText().length()!= 10){
+            JOptionPane.showMessageDialog(this, "Contact Number should be numeric and 10 digits only!!!");
+            return;
+        } 
+        
         String hName = txtHospitalName.getText();
         String hID = txtHospitalID.getText();
         String hStreet = txtHospitalStreet.getText();
         String hPhone = txtHospitalPhone.getText();
-
+            
+        
+                
         hp = hospital.addNewHospital();
         hp.setHospitalID(hID);
         hp.setHospitalName(hName);
@@ -260,5 +285,14 @@ public class CreateHospitalPanel extends javax.swing.JPanel {
             row[3]= hp.getPhoneNo();
             model.addRow(row);
         }
+    }
+    
+    private boolean checkForAlphaNum(String empNo){
+        for(int i=0;i<empNo.length();i++){
+           char c = empNo.charAt(i);
+           if((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+                return true;
+           }
+        return false;
     }
 }
