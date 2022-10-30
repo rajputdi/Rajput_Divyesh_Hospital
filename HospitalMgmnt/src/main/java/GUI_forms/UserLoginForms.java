@@ -312,15 +312,17 @@ public class UserLoginForms extends javax.swing.JFrame {
         // TODO add your handling code here:
         LoginPageForm lp = new LoginPageForm(doctor, hospital);
         lp.setVisible(true);
+        //this.setVisible(false);
         lp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        MainDoctorForm md = new MainDoctorForm(perDir, patDir);
-        md.setVisible(true);
-        this.setVisible(false);
+        LoginPageForm lp = new LoginPageForm(perDir, patDir);
+        lp.setVisible(true);
+        lp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -343,7 +345,7 @@ public class UserLoginForms extends javax.swing.JFrame {
         // TODO add your handling code here:
         MainPatientForm mpf = new MainPatientForm(doctor, hospital);
         mpf.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**

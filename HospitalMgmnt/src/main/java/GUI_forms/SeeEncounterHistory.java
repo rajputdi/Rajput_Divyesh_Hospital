@@ -55,7 +55,7 @@ public class SeeEncounterHistory extends javax.swing.JPanel {
 
         setLayout(new java.awt.CardLayout());
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 204));
+        jPanel2.setBackground(new java.awt.Color(51, 153, 255));
 
         jLabel1.setFont(new java.awt.Font("Footlight MT Light", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));

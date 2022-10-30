@@ -320,7 +320,7 @@ public class CreatePatientPanel extends javax.swing.JPanel {
       
       
       
-      JOptionPane.showMessageDialog(this, "New Person added to the directory"); 
+      JOptionPane.showMessageDialog(this, "New Patient added to the directory"); 
     }//GEN-LAST:event_jButton3ActionPerformed
 
 

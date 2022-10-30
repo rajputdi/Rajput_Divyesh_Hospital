@@ -130,6 +130,7 @@ public class CreateVitalsPatient extends javax.swing.JPanel {
 
         jLabel2.setText("Patient Name: ");
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 153));
         jButton1.setText("View");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,11 +184,12 @@ public class CreateVitalsPatient extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
@@ -267,6 +269,7 @@ public class CreateVitalsPatient extends javax.swing.JPanel {
         encounterInfo.setVs(vitalsign_list);
         
         patDir.getPatientList().get(selectedRowIndex).getEncounterList().add(encounterInfo);
+        JOptionPane.showMessageDialog(this, "Vitals created for the patient!!!");
         //patientdirectory_list.getPatientdatabase().get(index).setIsNormal(vitalsign_list.getIsNormal());
         //viewpatient();
         }catch(Exception e){

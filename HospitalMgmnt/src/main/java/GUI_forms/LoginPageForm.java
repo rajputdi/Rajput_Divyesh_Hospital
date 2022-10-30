@@ -6,6 +6,7 @@ package GUI_forms;
 
 import com.hospital.hospitalmgmnt.DoctorDirectory;
 import com.hospital.hospitalmgmnt.HospitalDirectory;
+import com.hospital.hospitalmgmnt.PatientDirectory;
 import com.hospital.hospitalmgmnt.PersonDirectory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -22,16 +23,27 @@ public class LoginPageForm extends javax.swing.JFrame {
     PersonDirectory perDir;
     HospitalDirectory hospital;
     DoctorDirectory doctor;
+    PatientDirectory patDir;
     public LoginPageForm(){
         
         
     }
     public LoginPageForm(PersonDirectory perDir) {
         initComponents();
+        jPanel4.setVisible(false);
         this.perDir = perDir;
+        
+    }
+    public LoginPageForm (PersonDirectory perDir, PatientDirectory patDir){
+        initComponents();
+        jPanel4.setVisible(false);
+        this.perDir = perDir;
+        this.patDir = patDir;
+        
     }
     public LoginPageForm(DoctorDirectory doctor, HospitalDirectory hospital) {
         initComponents();
+        jPanel4.setVisible(false);
         this.doctor = doctor;
         this.hospital = hospital;
     }
@@ -55,6 +67,12 @@ public class LoginPageForm extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jPanel4 = new javax.swing.JPanel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -106,24 +124,76 @@ public class LoginPageForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jCheckBox1.setText("Are you a System Administrator?");
+        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox1ActionPerformed(evt);
+            }
+        });
+
+        jPanel4.setBackground(new java.awt.Color(204, 204, 255));
+        jPanel4.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jPanel4PropertyChange(evt);
+            }
+        });
+
+        jRadioButton1.setText("Community Admin Page");
+
+        jRadioButton2.setText("Hospital Admin Page");
+
+        jRadioButton3.setText("Person Admin Page");
+
+        jRadioButton4.setText("Doctor WorkArea Page");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                    .addComponent(jRadioButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRadioButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jRadioButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jRadioButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jRadioButton4)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(140, 140, 140)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Login, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(Login, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(18, 18, 18)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jCheckBox1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(205, Short.MAX_VALUE))
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,9 +207,13 @@ public class LoginPageForm extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(18, 18, 18)
+                .addComponent(jCheckBox1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Login, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -172,7 +246,7 @@ public class LoginPageForm extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 469, Short.MAX_VALUE)
+            .addGap(0, 474, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -188,15 +262,46 @@ public class LoginPageForm extends javax.swing.JFrame {
         String user=txtUsername.getText();
         String pwd= txtPassword.getText();
         
-
-        if (user.equals("admin") && (pwd.equals("admin")))
+        
+        if(jCheckBox1.isSelected()){
+            if(user.equals("admin") && (pwd.equals("admin"))){
+                if(jRadioButton2.isSelected()){
+                  MainEntryForm mf = new MainEntryForm(doctor, hospital);
+                  mf.setVisible(true);
+                  this.setVisible(false);
+                  mf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);  
+                }
+                else if(jRadioButton1.isSelected()){
+                    MainComAdminForm mca = new MainComAdminForm(hospital);
+                    mca.setVisible(true);
+                    this.setVisible(false);
+                    mca.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                }
+                else if (jRadioButton3.isSelected()){
+                    MainPersonForm mp = new MainPersonForm(perDir);
+                    mp.setVisible(true);
+                    this.setVisible(false);
+                    mp.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                }
+                else if (jRadioButton4.isSelected()){
+                    MainDoctorForm md = new MainDoctorForm(perDir, patDir);
+                    md.setVisible(true);
+                    this.setVisible(false);
+                    md.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                }
+                else 
+                 JOptionPane.showMessageDialog(this, "Please select a page to proceed");   
+            }
+        }
+        else
+        if (user.equals("hadmin") && (pwd.equals("hadmin@123")))
         {
             MainEntryForm mf = new MainEntryForm(doctor, hospital);
             mf.setVisible(true);
             this.setVisible(false);
             mf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         } 
-        else if (user.equals("padmin") && (pwd.equals("padmin")))
+        else if (user.equals("padmin") && (pwd.equals("padmin@321")))
         {
             MainPersonForm mp = new MainPersonForm(perDir);
             mp.setVisible(true);
@@ -210,6 +315,13 @@ public class LoginPageForm extends javax.swing.JFrame {
                  this.setVisible(false);
                  mca.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                  
+        }
+        else if (user.equals("doctor1")&& (pwd.equals("doctor@123")))
+        {
+                MainDoctorForm md = new MainDoctorForm(perDir, patDir);
+                md.setVisible(true);
+                this.setVisible(false);
+                md.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 }
         else
             JOptionPane.showMessageDialog(this, "Incorrect username or Password");
@@ -220,6 +332,17 @@ public class LoginPageForm extends javax.swing.JFrame {
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
+
+    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+        // TODO add your handling code here:
+        if(jCheckBox1.isSelected())
+            jPanel4.setVisible(true);
+        
+    }//GEN-LAST:event_jCheckBox1ActionPerformed
+
+    private void jPanel4PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jPanel4PropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanel4PropertyChange
 
     /**
      * @param args the command line arguments
@@ -258,12 +381,18 @@ public class LoginPageForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Login;
+    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
