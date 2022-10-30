@@ -5,6 +5,7 @@
 package GUI_forms;
 
 import com.hospital.hospitalmgmnt.HospitalDirectory;
+import com.hospital.hospitalmgmnt.PersonDirectory;
 
 /**
  *
@@ -16,12 +17,19 @@ public class MainComAdminForm extends javax.swing.JFrame {
      * Creates new form MainComAdminForm
      */
     HospitalDirectory hospital;
+    PersonDirectory perDir;
     public MainComAdminForm() {
     }
     
     public MainComAdminForm(HospitalDirectory hospital){
         initComponents();
         this.hospital = hospital;
+        
+    }
+    public MainComAdminForm(HospitalDirectory hospital, PersonDirectory perDir){
+        initComponents();
+        this.hospital = hospital;
+        this.perDir = perDir;
         
     }
 
@@ -140,6 +148,8 @@ public class MainComAdminForm extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        AssignCommPatient acp = new AssignCommPatient(hospital, perDir);
+        jSplitPane1.setRightComponent(acp);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

@@ -47,6 +47,13 @@ public class LoginPageForm extends javax.swing.JFrame {
         this.doctor = doctor;
         this.hospital = hospital;
     }
+    public LoginPageForm(DoctorDirectory doctor, HospitalDirectory hospital, PersonDirectory perDir) {
+        initComponents();
+        jPanel4.setVisible(false);
+        this.doctor = doctor;
+        this.hospital = hospital;
+        this.perDir = perDir;
+    }
     
 
     /**
@@ -310,7 +317,7 @@ public class LoginPageForm extends javax.swing.JFrame {
         }
         else if (user.equals("CommAdmin") && (pwd.equals("654321")) ) 
         {
-                 MainComAdminForm mca = new MainComAdminForm(hospital);
+                 MainComAdminForm mca = new MainComAdminForm(hospital, perDir);
                  mca.setVisible(true);
                  this.setVisible(false);
                  mca.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

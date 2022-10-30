@@ -55,6 +55,8 @@ public class SeeEncounterHistory extends javax.swing.JPanel {
 
         setLayout(new java.awt.CardLayout());
 
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+
         jPanel2.setBackground(new java.awt.Color(51, 153, 255));
 
         jLabel1.setFont(new java.awt.Font("Footlight MT Light", 1, 18)); // NOI18N
@@ -138,6 +140,7 @@ public class SeeEncounterHistory extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 153));
         jButton1.setText("View Encounters");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

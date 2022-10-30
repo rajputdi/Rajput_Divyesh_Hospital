@@ -266,13 +266,14 @@ public class CreateVitalsPatient extends javax.swing.JPanel {
         encounterInfo.setTimestamp(encounterDate);
         encounterInfo.setVisit_ID(visitId);
         try{
-        encounterInfo.setVs(vitalsign_list);
+            encounterInfo.setVs(vitalsign_list);
         
-        patDir.getPatientList().get(selectedRowIndex).getEncounterList().add(encounterInfo);
-        JOptionPane.showMessageDialog(this, "Vitals created for the patient!!!");
+            patDir.getPatientList().get(selectedRowIndex).getEncounterList().add(encounterInfo);
+            JOptionPane.showMessageDialog(this, "Vitals created for the patient!!!");
         //patientdirectory_list.getPatientdatabase().get(index).setIsNormal(vitalsign_list.getIsNormal());
         //viewpatient();
         }catch(Exception e){
+            JOptionPane.showMessageDialog(this,"Please fill all the vitals");
         return;
         }
     }//GEN-LAST:event_btnaddActionPerformed

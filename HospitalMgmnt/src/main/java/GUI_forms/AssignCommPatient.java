@@ -4,9 +4,10 @@
  */
 package GUI_forms;
 
-import com.hospital.hospitalmgmnt.Doctor;
 import com.hospital.hospitalmgmnt.Hospital;
 import com.hospital.hospitalmgmnt.HospitalDirectory;
+import com.hospital.hospitalmgmnt.Person;
+import com.hospital.hospitalmgmnt.PersonDirectory;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -14,20 +15,23 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Divyesh Rajput
  */
-public class CreateCommunity extends javax.swing.JPanel {
+public class AssignCommPatient extends javax.swing.JPanel {
 
     /**
-     * Creates new form CreateCommunity
+     * Creates new form AssignCommPatient
      */
     HospitalDirectory hospital;
-    public CreateCommunity() {
-       // initComponents();
+    PersonDirectory perDir;
+    
+    public AssignCommPatient() {
+        initComponents();
     }
-    public CreateCommunity(HospitalDirectory hospital) {
+    public AssignCommPatient(HospitalDirectory hospital, PersonDirectory perDir) {
         initComponents();
         this.hospital = hospital;
+        this.perDir = perDir;
         
-        populateHospitalTable();
+        populatePersonTable();
     }
 
     /**
@@ -49,12 +53,10 @@ public class CreateCommunity extends javax.swing.JPanel {
         txtHospitalCity = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblHospital = new javax.swing.JTable();
+        tblPerson = new javax.swing.JTable();
         jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtHospitalID = new javax.swing.JTextField();
-
-        setBackground(new java.awt.Color(204, 255, 255));
+        jLabel5 = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setLayout(new java.awt.CardLayout());
@@ -68,7 +70,7 @@ public class CreateCommunity extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Footlight MT Light", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Assign Community");
+        jLabel1.setText("Assign Community to Person");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -96,7 +98,7 @@ public class CreateCommunity extends javax.swing.JPanel {
             }
         });
 
-        tblHospital.setModel(new javax.swing.table.DefaultTableModel(
+        tblPerson.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -104,10 +106,10 @@ public class CreateCommunity extends javax.swing.JPanel {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "HospitalID", "HospitalName", "Street Address", "Phone", "Community", "City"
+                "Name", "Age", "Gender", "Street Address", "Community", "City"
             }
         ));
-        jScrollPane2.setViewportView(tblHospital);
+        jScrollPane2.setViewportView(tblPerson);
 
         jButton3.setText("View");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +118,7 @@ public class CreateCommunity extends javax.swing.JPanel {
             }
         });
 
-        jLabel4.setText("Hospital ID");
+        jLabel4.setText("Patient Name");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -143,9 +145,9 @@ public class CreateCommunity extends javax.swing.JPanel {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(39, 39, 39)))
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
-                            .addComponent(txtHospitalID))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(494, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -160,9 +162,11 @@ public class CreateCommunity extends javax.swing.JPanel {
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtHospitalID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,41 +208,41 @@ public class CreateCommunity extends javax.swing.JPanel {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-      int selectedRowIndex = tblHospital.getSelectedRow();
+        int selectedRowIndex = tblPerson.getSelectedRow();
 
         if (selectedRowIndex<0){
             JOptionPane.showMessageDialog(this, "Please select a record to view");
         }
 
-        DefaultTableModel model = (DefaultTableModel) tblHospital.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblPerson.getModel();
         Hospital hos;
+        Person per;
+        per = (Person) model.getValueAt(selectedRowIndex, 0);
+        per.setCommunity_name(txtCommunity.getText());
+        per.setCityName(txtHospitalCity.getText());
         
-        hos = (Hospital) model.getValueAt(selectedRowIndex, 0);
-        hos.setCommunity_name(txtCommunity.getText());
-        hos.setCityName(txtHospitalCity.getText());
-        
-        model.setValueAt(hos, selectedRowIndex, 0);
-        //model.setValueAt(dr, selectedRowIndex, 0);
-        model.setValueAt(hos.getCommunity_name(), selectedRowIndex, 4);
-        model.setValueAt(hos.getCityName(), selectedRowIndex, 5);
+        model.setValueAt(per, selectedRowIndex, 0);
+        model.setValueAt(per.getCommunity_name(), selectedRowIndex, 4);
+        model.setValueAt(per.getCityName(), selectedRowIndex, 5);
         
         JOptionPane.showMessageDialog(this, "Record Updated Successfully!!!");  
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        int selectedRowIndex = tblHospital.getSelectedRow();
+        int selectedRowIndex = tblPerson.getSelectedRow();
 
         if (selectedRowIndex<0){
             JOptionPane.showMessageDialog(this, "Please select a record to view");
         }
 
-        DefaultTableModel model = (DefaultTableModel) tblHospital.getModel();
+        DefaultTableModel model = (DefaultTableModel) tblPerson.getModel();
         //Doctor dr;
-        Hospital hos;
-        hos = (Hospital) model.getValueAt(selectedRowIndex , 0);
-        
-        txtHospitalID.setText(String.valueOf(hos.getHospitalID()));
+        Person per;
+        per = (Person) model.getValueAt(selectedRowIndex , 0);
+
+        jLabel5.setText(String.valueOf(per.getPr_name()));
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
@@ -249,27 +253,28 @@ public class CreateCommunity extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tblHospital;
+    private javax.swing.JTable tblPerson;
     private javax.swing.JTextField txtCommunity;
     private javax.swing.JTextField txtHospitalCity;
-    private javax.swing.JTextField txtHospitalID;
     // End of variables declaration//GEN-END:variables
 
-    private void populateHospitalTable() {
+    private void populatePersonTable() {
         //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-        DefaultTableModel model = (DefaultTableModel) tblHospital.getModel();
-        System.out.println(hospital.toString());
+    DefaultTableModel model = (DefaultTableModel) tblPerson.getModel();
         model.setRowCount(0);
-        for (Hospital hp : hospital.getHospital()){
-            Object[] row = new Object[4];
-            row[0] = hp;
-            row[1]= hp.getHospitalName();
-            row[2]= hp.getStreetAddress();
-            row[3]= hp.getPhoneNo();
+        for (Person per : perDir.getPersonList()){
+            Object[] row = new Object[6];
+            row[0] = per;
+            row[1]= per.getPr_age();
+            row[2]= per.getPr_gender();
+            row[3]= per.getPr_streetAddress();
+            row[4]= per.getCommunity_name();
+            row[5]= per.getCityName();
             model.addRow(row);
         }
     }
