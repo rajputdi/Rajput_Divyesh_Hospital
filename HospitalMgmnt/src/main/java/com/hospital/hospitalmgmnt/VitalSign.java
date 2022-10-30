@@ -13,7 +13,7 @@ public class VitalSign {
     private int hrtRate;
     private int temp;
     private Double weight;
-
+    
     public int getBloodPr() {
         return bloodPr;
     }

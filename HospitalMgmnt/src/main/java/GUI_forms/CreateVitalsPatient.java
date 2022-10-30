@@ -4,6 +4,7 @@
  */
 package GUI_forms;
 
+import com.hospital.hospitalmgmnt.Encounter;
 import com.hospital.hospitalmgmnt.Patient;
 import com.hospital.hospitalmgmnt.PatientDirectory;
 import com.hospital.hospitalmgmnt.Person;
@@ -258,23 +259,19 @@ public class CreateVitalsPatient extends javax.swing.JPanel {
         Date encounterDate = new Date();
         String visitId = "#VI_"+(patDir.getPatientList().get(selectedRowIndex).getEncounterList().size()+1);
         
-        VitalSign vitalsign_list = setVs();
-        System.out.println(vitalsign_list.getHr());
-        Encounter encountersinformation = new Encounter();
-        encountersinformation.setTimestamp(encounterDate);
-        encountersinformation.setVisit_ID(visitId);
+        VitalSign vitalsign_list = setVitalSign();
+        Encounter encounterInfo = new Encounter();
+        encounterInfo.setTimestamp(encounterDate);
+        encounterInfo.setVisit_ID(visitId);
         try{
-        encountersinformation.setVs(vitalsign_list);
+        encounterInfo.setVs(vitalsign_list);
         
-        patientdirectory_list.getPatientdatabase().get(index).getHistoryofencounter().add(encountersinformation);
-        patientdirectory_list.getPatientdatabase().get(index).setIsNormal(vitalsign_list.getIsNormal());
-        viewpatient();
+        patDir.getPatientList().get(selectedRowIndex).getEncounterList().add(encounterInfo);
+        //patientdirectory_list.getPatientdatabase().get(index).setIsNormal(vitalsign_list.getIsNormal());
+        //viewpatient();
         }catch(Exception e){
         return;
         }
-        if(!vitalsign_list.getIsNormal()){JOptionPane.showMessageDialog(this,"ALERT!!Patient is in serious condition");}
-         else{
-        JOptionPane.showMessageDialog(this,"Patient is Fit and Fine");
     }//GEN-LAST:event_btnaddActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -331,5 +328,36 @@ public class CreateVitalsPatient extends javax.swing.JPanel {
             row[3]= pat.getPr_gender();
             model.addRow(row);
         }
+    }
+
+    private VitalSign setVitalSign() {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        VitalSign vitalsign_list = new VitalSign();
+        
+        try{
+        if(txtbp.getText().isEmpty()){
+        JOptionPane.showMessageDialog(this,"Please fill BloodPressure");
+            return null;
+        }
+        if(txthr.getText().isEmpty()){
+        JOptionPane.showMessageDialog(this,"Please fill HeartRate");
+           return null;
+        }
+
+        if(txtTemp.getText().isEmpty()){
+        JOptionPane.showMessageDialog(this,"Please fill Temperature");
+           return null;
+        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this,"Format is not correct");
+            return null;
+        }
+
+       
+        vitalsign_list.setBloodPr(Integer.parseInt(txtbp.getText()));
+        vitalsign_list.setTemp(Integer.parseInt(txtTemp.getText()));
+        vitalsign_list.setWeight(Double.parseDouble(txtWeight.getText()));
+        vitalsign_list.setHrtRate(Integer.parseInt(txthr.getText()));
+        return vitalsign_list;
     }
 }

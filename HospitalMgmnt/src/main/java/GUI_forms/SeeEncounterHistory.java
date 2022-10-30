@@ -4,6 +4,14 @@
  */
 package GUI_forms;
 
+import com.hospital.hospitalmgmnt.Encounter;
+import com.hospital.hospitalmgmnt.Patient;
+import com.hospital.hospitalmgmnt.PatientDirectory;
+import com.hospital.hospitalmgmnt.Person;
+import com.hospital.hospitalmgmnt.PersonDirectory;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Divyesh Rajput
@@ -13,8 +21,14 @@ public class SeeEncounterHistory extends javax.swing.JPanel {
     /**
      * Creates new form SeeEncounterHistory
      */
-    public SeeEncounterHistory() {
+    PersonDirectory perDir;
+    PatientDirectory patDir;
+    public SeeEncounterHistory(PersonDirectory perDir, PatientDirectory patDir) {
         initComponents();
+        this.perDir = perDir;
+        this.patDir = patDir;
+        
+        populatePatientTable();
     }
 
     /**
@@ -73,7 +87,7 @@ public class SeeEncounterHistory extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "ID", "Name", "Age", "Gender"
+                "Patient ID", "Name", "Age", "Gender"
             }
         ));
         jScrollPane3.setViewportView(tblpatientList);
@@ -125,21 +139,26 @@ public class SeeEncounterHistory extends javax.swing.JPanel {
         );
 
         jButton1.setText("View Encounters");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         tblvitalsigns1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Encounter ID", "Encounter Date", "Heart Rate", "Blood Pressure", "Weight", "Temperature"
+                "Patient ID", "Encounter ID", "Encounter Date", "Heart Rate", "Blood Pressure", "Weight", "Temperature"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                true, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -165,11 +184,11 @@ public class SeeEncounterHistory extends javax.swing.JPanel {
                                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jScrollPane4))
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 92, Short.MAX_VALUE)))
+                        .addGap(0, 77, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(292, 292, 292)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -193,6 +212,16 @@ public class SeeEncounterHistory extends javax.swing.JPanel {
         add(jPanel1, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex= tblpatientList.getSelectedRow();
+        if(selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this,"Please select any row first");
+            return;
+        }
+        displayVitals();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -208,4 +237,35 @@ public class SeeEncounterHistory extends javax.swing.JPanel {
     private javax.swing.JTable tblpatientList;
     private javax.swing.JTable tblvitalsigns1;
     // End of variables declaration//GEN-END:variables
+
+    private void populatePatientTable() {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    DefaultTableModel model = (DefaultTableModel) tblpatientList.getModel();
+        model.setRowCount(0);
+        for (Patient pt : patDir.getPatientList()){
+            Object[] row = new Object[4];
+            row[0] = pt;
+            row[1]= pt.getPr_name();
+            row[2]= pt.getPr_age();
+            row[3]= pt.getPr_gender();
+            model.addRow(row);
+        }
+    }
+
+    private void displayVitals() {
+        //throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        DefaultTableModel model=(DefaultTableModel) tblvitalsigns1.getModel();
+        model.setRowCount(0);
+        for (Encounter enc: patDir.getPatientList().get(tblpatientList.getSelectedRow()).getEncounterList()){
+            Object[] row = new Object[7];
+            row[0]= patDir.getPatientList().get(tblpatientList.getSelectedRow()).getPatient_ID();
+            row[1]= enc.getVisit_ID();
+            row[2]= enc.getTimestamp();
+            row[3]=enc.getVs().getHrtRate();
+            row[4]=enc.getVs().getBloodPr();
+            row[5]=enc.getVs().getWeight();
+            row[6]=enc.getVs().getTemp();
+            model.addRow(row);  
+    }
+    }
 }

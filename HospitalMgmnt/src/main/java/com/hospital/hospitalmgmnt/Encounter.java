@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author Divyesh Rajput
  */
-public class Encounter {
+public class Encounter{
     
     private String visit_ID;
     private Date timestamp;
