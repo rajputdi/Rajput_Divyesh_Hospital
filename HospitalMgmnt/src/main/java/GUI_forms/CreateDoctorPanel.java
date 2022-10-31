@@ -256,6 +256,10 @@ public class CreateDoctorPanel extends javax.swing.JPanel {
       dr.setDrContact(drContact);
      
       JOptionPane.showMessageDialog(this, "New Doctor added to the directory");
+      
+      txtDoctor.setText("");
+      txtDrID.setText("");
+      txtDrPhone.setText("");
     }//GEN-LAST:event_btnCreateDoctorActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
