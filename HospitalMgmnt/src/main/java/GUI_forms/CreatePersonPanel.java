@@ -270,8 +270,8 @@ public class CreatePersonPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Contact Number should be numeric and 10 digits only!!!");
             return;
         } 
-     if( !checkForAlphaNum(txtHouseNo.getText())){
-            JOptionPane.showMessageDialog(this, "House Number cannot be alphanumeric!!!");
+     if( checkForAlphaNum(txtHouseNo.getText())){
+            JOptionPane.showMessageDialog(this, "House Number is not valid!!!");
             return;
         }
         

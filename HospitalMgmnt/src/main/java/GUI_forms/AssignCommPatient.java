@@ -226,6 +226,8 @@ public class AssignCommPatient extends javax.swing.JPanel {
         model.setValueAt(per.getCityName(), selectedRowIndex, 5);
         
         JOptionPane.showMessageDialog(this, "Record Updated Successfully!!!");  
+        txtCommunity.setText("");
+        txtHospitalCity.setText("");
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
